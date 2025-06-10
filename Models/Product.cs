@@ -10,7 +10,8 @@ namespace MvcDebuggingExam.Models
         [StringLength(100, ErrorMessage = "Product name cannot exceed 100 characters")]
         public string Name { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Description is required")]
+        //[Required(ErrorMessage = "Description is required")]  There is an error here that will be corrected by deleting this sentence because the description is optional
+       // (Q1 in exam )
         public string Description { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Price is required")]

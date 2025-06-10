@@ -37,7 +37,8 @@ namespace MvcDebuggingExam.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            if (ModelState.IsValid)
+            //We put ! before the ModelState (Q1 in exam)
+            if (!ModelState.IsValid)
             {
                 product.Id = products.Count > 0 ? products.Max(p => p.Id) + 1 : 1;
                 products.Add(product);
