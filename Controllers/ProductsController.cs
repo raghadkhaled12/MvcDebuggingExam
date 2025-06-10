@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
 using MvcDebuggingExam.Models;
 
 namespace MvcDebuggingExam.Controllers
@@ -25,7 +26,9 @@ namespace MvcDebuggingExam.Controllers
             {
                 return NotFound();
             }
-            return View(product);
+            //Question 2 fix 
+            //Here is the correction of the details view path. we can transfer the file to view/products/details.cshtml
+            return View("~/Views/Home/Details.cshtml",product);
         }
 
         
