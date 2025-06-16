@@ -9,6 +9,9 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
+            @* Fix Question 3 *@
+            @* Fix 1 *@
+			@Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group mb-3">
@@ -44,5 +47,10 @@
 
 
 @section Scripts {
+    @* Fix 2 *@
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
  
 }
