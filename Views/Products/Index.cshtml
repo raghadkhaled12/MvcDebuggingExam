@@ -32,10 +32,13 @@
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a> |
                     <form asp-action="Delete" style="display:inline;" method="post">
+                        @* Fix 3 in Question 4 *@
+                        @Html.AntiForgeryToken()
                         <input type="hidden" name="id" value="@item.Id" />
                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
-                    <a asp-action="DeleteConfirmed" asp-route-id="@item.Id" class="btn btn-sm btn-secondary" onclick="return confirm('Delete this item?')">Delete (Alt)</a>
+                    @* Fix 4 In Question 4 *@
+                    @* <a asp-action="DeleteConfirmed" asp-route-id="@item.Id" class="btn btn-sm btn-secondary" onclick="return confirm('Delete this item?')">Delete (Alt)</a> *@
                 </td>
             </tr>
         }

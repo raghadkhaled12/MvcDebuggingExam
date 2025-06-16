@@ -84,9 +84,10 @@ namespace MvcDebuggingExam.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int productId)
+        // Fix 1 in Question 4 (Error in the Parameter name inside the Delete method .it should be id not productid , so that it matches the value in the form) 
+        public IActionResult Delete(int Id)
         {
-            var product = products.FirstOrDefault(p => p.Id == productId);
+            var product = products.FirstOrDefault(p => p.Id == Id);
             if (product != null)
             {
                 products.Remove(product);
@@ -94,14 +95,15 @@ namespace MvcDebuggingExam.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult DeleteConfirmed(int id)
-        {
-            var product = products.FirstOrDefault(p => p.Id == id);
-            if (product != null)
-            {
-                products.Remove(product);
-            }
-            return RedirectToAction(nameof(Index));
-        }
+        // Fix 2 in Question 4 (we need to DeleteConfirmed action)
+        //public IActionResult DeleteConfirmed(int id)
+        //{
+        //    var product = products.FirstOrDefault(p => p.Id == id);
+        //    if (product != null)
+        //    {
+        //        products.Remove(product);
+        //    }
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }
