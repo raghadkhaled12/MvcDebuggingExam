@@ -30,8 +30,8 @@ namespace MvcDebuggingExam.Controllers
             //Here is the correction of the details view path. we can transfer the file to view/products/details.cshtml
             return View("~/Views/Home/Details.cshtml",product);
         }
-
-        
+        //Put [Http Get]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -40,8 +40,8 @@ namespace MvcDebuggingExam.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            //We put ! before the ModelState (Q1 in exam)
-            if (!ModelState.IsValid)
+            //Change in Question 1 (not put ! before ModelState)
+            if (ModelState.IsValid)
             {
                 product.Id = products.Count > 0 ? products.Max(p => p.Id) + 1 : 1;
                 products.Add(product);
